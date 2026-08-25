@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Color de la barra del navegador cuando la PWA esta instalada -->
+    <meta name="theme-color" content="#003F59">
+
+    <!-- Material Design for Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap-material-design.min.css">
+
+    <!-- Estilos propios: van DESPUES del framework para poder
+         sobrescribir sus colores (en CSS gana la ultima regla). -->
+    <link rel="stylesheet" href="css/css.css">
+
+    <!-- Manifiesto: permite instalar la app en el dispositivo -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Icono para la pestania y para iOS -->
+    <link rel="icon" href="images/icons/icon-192x192.png">
+    <link rel="apple-touch-icon" href="images/icons/icon-192x192.png">
+
+    <title>PWA IUDigital</title>
+</head>
+
+<body>
+
+    <!-- ============================================================
+         NAVEGACION RESPONSIVE
+         navbar-expand-lg  = en pantallas grandes (>=992px) el menu se
+                             muestra extendido en una sola fila.
+                             En pantallas menores se colapsa y aparece
+                             el boton de hamburguesa.
+         navbar-dark       = texto e icono de hamburguesa en color claro.
+         ============================================================ -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-iud">
+        <div class="container">
+
+            <!-- Logo de la institucion -->
+            <a class="navbar-brand" href="#inicio">
+                <img src="images/iu-digital-logo.png" alt="Logo IU Digital" class="logo-iud">
+                <span class="marca-texto">IU Digital</span>
+            </a>
+
+            <!-- Boton de hamburguesa: solo visible en movil.
+                 data-toggle="collapse" le dice a Bootstrap que muestre u
+                 oculte el elemento cuyo id es "menuPrincipal". -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuPrincipal"
+                aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menu de navegacion">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Enlaces del menu -->
+            <div class="collapse navbar-collapse" id="menuPrincipal">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#inicio">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#curso">Curso</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#actividades">Actividades</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacto">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- Aviso que aparece solo cuando el dispositivo pierde la conexion -->
+    <div id="avisoOffline" class="aviso-offline">
+        Sin conexion a internet &mdash; estas viendo la version guardada en cache.
+    </div>
+
+    <main class="container">
+
+        <!-- ================= INICIO ================= -->
+        <section id="inicio" class="portada">
+            <h1>Hola IUDigital</h1>
+            <p class="portada-texto">
+                Aplicacion web progresiva (PWA) desarrollada para el curso de
+                Programacion de Dispositivos Moviles.
+            </p>
+            <button type="button" class="btn btn-raised btn-primary" id="btnSaludo">Presiona aqui</button>
+        </section>
+
+        <!-- ================= CURSO ================= -->
+        <section id="curso" class="seccion">
+            <h2>Curso</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Unidad 1</h4>
+                            <p class="card-text">
+                                Fundamentos de dispositivos moviles e introduccion
+                                a la programacion.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Tecnologias</h4>
+                            <p class="card-text">
+                                HTML5, CSS3, JavaScript, Bootstrap Material Design
+                                y Service Workers.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= ACTIVIDADES ================= -->
+        <section id="actividades" class="seccion">
+            <h2>Actividades</h2>
+            <ul class="list-group">
+                <li class="list-group-item">Practica PWA basica &mdash; primera parte</li>
+                <li class="list-group-item">Practica PWA basica &mdash; segunda parte</li>
+                <li class="list-group-item">Practica PWA basica &mdash; tercera parte</li>
+            </ul>
+        </section>
+
+        <!-- ================= CONTACTO ================= -->
+        <section id="contacto" class="seccion">
+            <h2>Contacto</h2>
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-text">Institucion Universitaria Digital de Antioquia</p>
+                    <p class="card-text">Medellin, Colombia</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="pie">
+        <p>IU Digital de Antioquia &mdash; Programacion de Dispositivos Moviles</p>
+    </footer>
+
+    <!-- Registro del Service Worker -->
+    <script src="js/app.js"></script>
+
+    <!-- Librerias: el orden importa (jQuery, luego Popper, luego Bootstrap) -->
+    <script src="js/jquery-3.2.1.slim.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap-material-design.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // Inicializa los efectos de Material Design sobre todo el body
+            $('body').bootstrapMaterialDesign();
+
+            // En movil, al tocar un enlace se cierra el menu de hamburguesa
+            $('#menuPrincipal .nav-link').on('click', function () {
+                $('#menuPrincipal').collapse('hide');
+                $('.nav-item').removeClass('active');
+                $(this).parent().addClass('active');
+            });
+
+            // Boton de ejemplo
+            $('#btnSaludo').on('click', function () {
+                alert('Hola, esta es una PWA de la IU Digital.');
+            });
+        });
+    </script>
+</body>
+
+</html>

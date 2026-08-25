@@ -1,0 +1,134 @@
+/* ============================================================
+   Estilos propios de la PWA IUDigital
+   Colores tomados del logo institucional:
+     azul  #003F59
+     rojo  #BF2935
+   ============================================================ */
+
+body {
+    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: #F4F6F8;
+    color: #263238;
+}
+
+/* ---------- Barra de navegacion ---------- */
+
+.navbar-iud {
+    background-color: #003F59;
+    /* sombra suave, propia de Material Design */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .26);
+}
+
+.logo-iud {
+    height: 34px;
+    width: auto;
+    background-color: #FFFFFF;
+    border-radius: 4px;
+    padding: 3px;
+    vertical-align: middle;
+}
+
+.marca-texto {
+    color: #FFFFFF;
+    font-weight: 500;
+    margin-left: 8px;
+    vertical-align: middle;
+}
+
+.navbar-iud .nav-link {
+    color: rgba(255, 255, 255, .85);
+}
+
+.navbar-iud .nav-link:hover {
+    color: #FFFFFF;
+}
+
+/* El enlace de la seccion activa se subraya en rojo institucional */
+.navbar-iud .nav-item.active .nav-link {
+    color: #FFFFFF;
+    border-bottom: 2px solid #BF2935;
+}
+
+/* En movil el menu desplegado necesita un poco de aire */
+@media (max-width: 991px) {
+    .navbar-iud .navbar-nav {
+        padding-top: 8px;
+    }
+
+    .navbar-iud .nav-item.active .nav-link {
+        border-bottom: none;
+        border-left: 3px solid #BF2935;
+        padding-left: 9px;
+    }
+}
+
+/* ---------- Aviso de "sin conexion" ---------- */
+
+.aviso-offline {
+    display: none;
+    /* JavaScript lo cambia a "block" cuando no hay red */
+    background-color: #BF2935;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+}
+
+/* ---------- Contenido ---------- */
+
+.portada {
+    text-align: center;
+    padding: 48px 16px 32px;
+}
+
+.portada h1 {
+    color: #003F59;
+    font-weight: 500;
+}
+
+.portada-texto {
+    max-width: 520px;
+    margin: 12px auto 24px;
+    color: #546E7A;
+}
+
+.seccion {
+    padding: 24px 0 8px;
+}
+
+.seccion h2 {
+    color: #003F59;
+    font-size: 24px;
+    font-weight: 500;
+    border-left: 4px solid #BF2935;
+    padding-left: 10px;
+    margin-bottom: 16px;
+}
+
+.card {
+    margin-bottom: 16px;
+}
+
+/* btn-raised = boton elevado de Material Design.
+   Se repite ".btn" para ganar especificidad sobre el tema de Bootstrap
+   Material Design, que por defecto pinta el boton en verde. */
+.btn.btn-raised.btn-primary {
+    background-color: #003F59;
+    color: #FFFFFF;
+}
+
+.btn.btn-raised.btn-primary:hover,
+.btn.btn-raised.btn-primary:focus,
+.btn.btn-raised.btn-primary:active {
+    background-color: #00566F;
+    color: #FFFFFF;
+}
+
+.pie {
+    text-align: center;
+    padding: 24px 16px;
+    margin-top: 32px;
+    color: #78909C;
+    font-size: 14px;
+    border-top: 1px solid #DDE3E7;
+}
